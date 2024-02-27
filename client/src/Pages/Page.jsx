@@ -106,7 +106,7 @@ const Page = () => {
 
         // Make a POST request to the server
         try {
-            const response = await axios.post('http://localhost:7000/employees/add', employeeData);
+            const response = await axios.post('https://emp-nq0o.onrender.com/employees/add', employeeData);
             if(response.data.code==="ER_DUP_ENTRY") alert("Duplicate ID is not allowed")
             // console.log(response)
           else{

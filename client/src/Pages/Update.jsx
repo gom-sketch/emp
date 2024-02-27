@@ -26,7 +26,7 @@ const Update = () => {
 
     const fetchEmployee = async () => {
         try {
-            const response = await axios.get(`http://localhost:7000/employees/${id}`);
+            const response = await axios.get(`https://emp-nq0o.onrender.com/employees/${id}`);
             setEmployeeData(response.data[0]);
         } catch (error) {
             console.error('Error fetching employee:', error);
@@ -72,7 +72,8 @@ const Update = () => {
 
         // Make a PUT request to update the employee data
         try {
-            await axios.put(`http://localhost:7000/employees/${id}`, employeeData);
+            console.log("asdfghjk")
+            await axios.put(`https://emp-nq0o.onrender.com/employees/${id}`, employeeData);
             // Redirect to the main page after updating
             // You can replace '/main' with the actual path to your main page
             alert("Update successful")

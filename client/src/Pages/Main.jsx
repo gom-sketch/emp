@@ -2,19 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 
 const Main = () => {
   const [employees, setEmployees] = useState([]);
-  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  // const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   useEffect(() => {
     fetchEmployees();
   }, []);
 
+  const navi=useNavigate()
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('http://localhost:7000/employees');
+      const response = await axios.get('https://emp-nq0o.onrender.com/employees');
       // console.log(response.data)
       setEmployees(response.data);
     } catch (error) {
@@ -24,7 +25,7 @@ const Main = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:7000/employees/${id}`);
+      await axios.delete(`https://emp-nq0o.onrender.com/employees/${id}`);
       fetchEmployees();
     } catch (error) {
       console.error('Error deleting employee:', error);
@@ -32,8 +33,8 @@ const Main = () => {
   };
 
   const handleUpdateClick = (employee) => {
-    setSelectedEmployee(employee);
-    window.location.replace(`/update/${employee.id}`);
+    // setSelectedEmployee(employee);
+    navi(`/update/${employee.id}`);
   };
   console.log(employees)
   return (

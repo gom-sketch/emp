@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   const fetchEmployeeData = async () => {
     try {
-      const response = await axios.get('http://localhost:7000/employees');
+      const response = await axios.get('https://emp-nq0o.onrender.com/employees');
       setEmployeeData(response.data);
     } catch (error) {
       console.error('Error fetching employee data:', error);

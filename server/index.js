@@ -76,8 +76,9 @@ app.delete('/employees/:id', (req, res) => {
 
 // Update an employee by ID
 app.put('/employees/:id', (req, res) => {
+    console.log("asdcfghui")
     const employeeId = req.params.id;
-    const { name, department, dob, age, gender, designation, salary, email, phone_no } = req.body;
+    const { name, department, dob, age, gender, designation, salary, email, phone_no, role } = req.body;
 
     const sql = 'UPDATE employees SET name=?, department=?, dob=?, age=?, gender=?, designation=?, salary=?, email=?, phone_no=?, role=? WHERE id=?';
 
